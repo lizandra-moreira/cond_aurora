@@ -1,0 +1,417 @@
+<title>Contas Edifício Aurora 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: coluna única vertical, fundo branco, cartões com ícone tingido à esquerda; letras grandes para leitura fácil */
+:root{
+  --bg:#f1f3fb; --panel:#f6f8fd; --surface:#ffffff; --fg:#141a33; --muted:#5b6385; --line:#e4e8f3;
+  --blue:#2f6bff; --mint:#19c38d; --pink:#f0509e; --purple:#7b5cff; --orange:#ff8a3d; --yellow:#ffc22e; --cyan:#11b3cf; --coral:#ff5f6d;
+  --good:#0f9d6b; --warn:#d97a00; --bad:#e0384b;
+  --f:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1222; --panel:#151a2e; --surface:#1a2036; --fg:#eef1fb; --muted:#a3abc9; --line:#2a3150;
+  --blue:#5a8bff; --mint:#2fd8a2; --pink:#ff6fb1; --purple:#9a83ff; --orange:#ff9e5c; --yellow:#ffd25a; --cyan:#3cc9e2; --coral:#ff7b86;
+  --good:#3fd69b; --warn:#ffb347; --bad:#ff6b7b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1222; --panel:#151a2e; --surface:#1a2036; --fg:#eef1fb; --muted:#a3abc9; --line:#2a3150;
+  --blue:#5a8bff; --mint:#2fd8a2; --pink:#ff6fb1; --purple:#9a83ff; --orange:#ff9e5c; --yellow:#ffd25a; --cyan:#3cc9e2; --coral:#ff7b86;
+  --good:#3fd69b; --warn:#ffb347; --bad:#ff6b7b; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:980px;margin:0 auto;display:grid;gap:40px}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(30px,5.5vw,44px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(23px,3.6vw,28px);font-weight:800;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+.lede{color:var(--muted);max-width:66ch}
+.eyebrow{text-transform:uppercase;letter-spacing:.09em;font-size:13px;font-weight:700;color:var(--blue)}
+.num{font-variant-numeric:tabular-nums}
+b{font-weight:700}
+header{display:grid;gap:12px}
+.hero{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:16px;font-weight:700;text-decoration:none;color:#fff;background:var(--blue);padding:10px 16px;border-radius:10px}
+.btn:focus-visible,.chip:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--purple);outline-offset:2px}
+.btn svg{width:18px;height:18px}
+section{display:grid;gap:16px}
+.sec-head{display:flex;align-items:center;gap:12px}
+.sec-head .ico{width:40px;height:40px}
+.ico{flex:none;width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 15%,transparent);color:var(--c)}
+.ico svg{width:55%;height:55%}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 6px 18px -12px color-mix(in srgb,var(--blue) 40%,transparent)}
+.card .txt{display:grid;gap:2px;min-width:0}
+.card .lab{font-size:15px;color:var(--muted);font-weight:600}
+.card .v{font-size:clamp(26px,4vw,32px);font-weight:800;letter-spacing:-.01em}
+.card .s{font-size:15px;color:var(--muted)}
+.card.feat{background:linear-gradient(135deg,#6a45ff,#8f6bff);border-color:transparent;color:#fff;box-shadow:0 12px 26px -12px #6a45ff}
+.card.feat .lab,.card.feat .s{color:rgba(255,255,255,.88)}
+.card.feat .ico{background:rgba(255,255,255,.2);color:#fff}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;padding:2px 10px;border-radius:999px;white-space:nowrap}
+.tag.ok{background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good)}
+.tag.wait{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.tag.info{background:color-mix(in srgb,var(--blue) 12%,transparent);color:var(--blue)}
+.panel{background:var(--panel);border-radius:16px;padding:20px;display:grid;gap:14px;min-width:0}
+.panel.white{background:var(--surface);border:1px solid var(--line)}
+.chart{position:relative;height:340px;min-width:0}
+.chart.sm{height:220px}
+.compo{display:flex;height:34px;border-radius:10px;overflow:hidden;gap:2px}
+.compo i{display:block;height:100%}
+.legend{display:grid;gap:8px}
+.legend .row{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line)}
+.legend .row:last-child{border-bottom:none}
+.legend .row .l{display:flex;gap:10px;align-items:flex-start;min-width:0}
+.legend .row .l small{display:block;color:var(--muted);font-size:14px}
+.legend .row.tot{border-top:2px solid var(--fg);border-bottom:none;font-weight:800;font-size:19px}
+.dot{flex:none;width:14px;height:14px;border-radius:4px;margin-top:5px}
+.neg{color:var(--bad)} .pos{color:var(--good)}
+.tablebox{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:16px}
+th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;white-space:nowrap}
+td.r,th.r{text-align:right;white-space:nowrap}
+tfoot td{font-weight:800;border-bottom:none;border-top:2px solid var(--fg)}
+.sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:8px}
+.bar{height:10px;border-radius:5px;background:var(--line);overflow:hidden;min-width:60px;flex:1}
+.bar i{display:block;height:100%;background:var(--mint)}
+.bar i.over{background:var(--bad)}
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+select,input[type=search]{font:inherit;font-size:16px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--fg);min-width:0}
+input[type=search]{flex:1 1 220px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--blue);color:#fff;border-color:var(--blue)}
+.callout{border-radius:16px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;background:color-mix(in srgb,var(--blue) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--blue) 25%,transparent)}
+.callout .ico{width:40px;height:40px}
+.callout p+p{margin-top:6px}
+ul.clean{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+ul.clean li{display:flex;gap:12px;align-items:flex-start}
+ul.clean li .ico{width:34px;height:34px;border-radius:10px}
+.small{font-size:15px;color:var(--muted)}
+footer{font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:grid;gap:6px}
+footer a{color:var(--blue)}
+@media (max-width:640px){.cards{grid-template-columns:1fr}.chart{height:300px}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a1 1 0 0 1 1 1v3h-3a2 2 0 0 0 0 4h3v3a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5"/><circle cx="17" cy="13" r=".5" fill="currentColor"/></symbol>
+  <symbol id="i-safe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5V7M12 17v-1.5M15.5 12H17M7 12h1.5M7 20v1M17 20v1"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></symbol>
+  <symbol id="i-pie" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16M4 15h16M10 3v18"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></symbol>
+</svg>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">Edifício Aurora · 6 apartamentos</span>
+  <h1>Prestação de contas 2026</h1>
+  <p class="lede">De janeiro até 28 de outubro de 2026 (outubro ainda está em aberto). Números tirados dos extratos da CondoConta, onde fica o dinheiro do dia a dia, e do Banco Inter, onde fica o fundo de reserva da obra.</p>
+  <div class="hero">
+    <a class="btn" href="https://docs.google.com/spreadsheets/d/1cqzY3qFE5n1-crpETtSZucBK6fVREm9vxV-eq_Uk240/edit?gid=41332585#gid=41332585" target="_blank" rel="noopener"><svg><use href="#i-sheet"/></svg>Ver planejamento do orçamento</a>
+  </div>
+</header>
+
+<section aria-label="Resumo">
+  <div class="cards">
+    <div class="card" style="--c:var(--blue)"><div class="ico"><svg><use href="#i-wallet"/></svg></div><div class="txt"><span class="lab">Conta do condomínio (CondoConta)</span><span class="v num" id="k1"></span><span class="s">Para as despesas do dia a dia</span></div></div>
+    <div class="card feat" style="--c:var(--purple)"><div class="ico"><svg><use href="#i-safe"/></svg></div><div class="txt"><span class="lab">Fundo de reserva (Inter)</span><span class="v num" id="k2"></span><span class="s">Guardado para a obra, já com rendimento</span></div></div>
+    <div class="card" style="--c:var(--mint)"><div class="ico"><svg><use href="#i-in"/></svg></div><div class="txt"><span class="lab">Taxa condominial recebida</span><span class="v num" id="k3"></span><span class="s" id="k3s"></span></div></div>
+    <div class="card" style="--c:var(--coral)"><div class="ico"><svg><use href="#i-out"/></svg></div><div class="txt"><span class="lab">Total gasto no ano</span><span class="v num" id="k4"></span><span class="s" id="k4s"></span></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="ico" style="--c:var(--purple)"><svg><use href="#i-safe"/></svg></div><h2>Fundo de reserva</h2></div>
+  <p class="lede">Cada apartamento paga R$ 500 (3 quartos) ou R$ 400 (2 quartos) por mês, total de <b>R$ 2.700 por mês</b>. O dinheiro entra na CondoConta e é transferido para o Inter, onde fica aplicado num CDB de liquidez diária.</p>
+
+  <div class="panel white">
+    <h3>Do que é feito o saldo de <span class="num" id="frTot"></span></h3>
+    <div class="compo" id="compo" role="img" aria-label="Composição do saldo do fundo de reserva"></div>
+    <div class="legend num" id="frLegend"></div>
+  </div>
+
+  <div class="callout">
+    <div class="ico" style="--c:var(--blue)"><svg><use href="#i-info"/></svg></div>
+    <div>
+      <p><b>Por que o Inter mostra R$ 29.005,04 “disponível para resgate”?</b></p>
+      <p class="small">É o valor depois do Imposto de Renda. Se o dinheiro fosse resgatado hoje, o banco descontaria 22,5% sobre o rendimento do CDB (R$ 1.110,76 × 22,5% ≈ R$ 249,88), porque as aplicações têm menos de 180 dias. Esse imposto só é cobrado se houver resgate. A partir de 180 dias a alíquota cai para 20%, e depois de 360 dias para 17,5%.</p>
+    </div>
+  </div>
+
+  <div class="panel white">
+    <h3>Arrecadação mês a mês</h3>
+    <div class="chart"><canvas id="chFR" role="img" aria-label="Fundo de reserva arrecadado por mês e saldo no Inter"></canvas></div>
+    <p class="small">Saldo no Inter de maio a setembro conforme o gráfico do aplicativo (valores arredondados). Até abril o fundo ficava numa subconta de reserva da própria CondoConta.</p>
+  </div>
+  <div class="panel white tablebox">
+    <table id="tbFR"><thead><tr><th>Mês</th><th class="r">Arrecadado</th><th class="r">Enviado ao Inter</th><th>Situação</th></tr></thead><tbody></tbody><tfoot></tfoot></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="ico" style="--c:var(--blue)"><svg><use href="#i-wallet"/></svg></div><h2>Conta do condomínio</h2></div>
+  <p class="lede">A taxa condominial (R$ 465 para 3 quartos e R$ 370 para 2 quartos, total de R$ 2.505 por mês) paga as despesas do prédio. Todo o dinheiro da reserva que passou por aqui já foi para o Inter, então o saldo abaixo é só do condomínio.</p>
+  <div class="panel white">
+    <h3>Como chegamos ao saldo</h3>
+    <div class="legend num" id="ledgerCC"></div>
+  </div>
+  <div class="panel white">
+    <h3>Entradas e saídas por mês</h3>
+    <p class="small">Acima da linha zero, o que entrou de taxa condominial. Abaixo, o que foi gasto, separado por tipo. A linha mostra o saldo ao final de cada mês.</p>
+    <div class="chart" style="height:420px"><canvas id="chMes" role="img" aria-label="Receita e despesa por mês"></canvas></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="ico" style="--c:var(--pink)"><svg><use href="#i-pie"/></svg></div><h2>No que gastamos</h2></div>
+  <div class="panel white">
+    <div class="chart sm"><canvas id="chCat" role="img" aria-label="Despesas por categoria"></canvas></div>
+    <div class="legend num" id="catLegend"></div>
+  </div>
+  <div class="panel white tablebox">
+    <div class="sec-head"><div class="ico" style="--c:var(--mint);width:36px;height:36px"><svg><use href="#i-target"/></svg></div><h3>Planejado x realizado (jan–out)</h3></div>
+    <p class="small">Previsão do <a href="https://docs.google.com/spreadsheets/d/1cqzY3qFE5n1-crpETtSZucBK6fVREm9vxV-eq_Uk240/edit?gid=41332585#gid=41332585" target="_blank" rel="noopener" style="color:var(--blue)">orçamento 2026</a> proporcional a 10 meses, comparada com o que foi gasto.</p>
+    <table id="tbOrc"><thead><tr><th>Grupo</th><th class="r">Previsto</th><th class="r">Gasto</th><th>Uso</th></tr></thead><tbody></tbody><tfoot></tfoot></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="ico" style="--c:var(--orange)"><svg><use href="#i-list"/></svg></div><h2>Todos os gastos</h2></div>
+  <p class="lede">Lista completa das despesas pagas pela CondoConta. Toque numa categoria, escolha o mês ou busque por nome.</p>
+  <div class="panel white">
+    <div class="chips" id="chips"></div>
+    <div class="filters">
+      <label class="small" for="fMes">Mês</label>
+      <select id="fMes"></select>
+      <input type="search" id="fBusca" placeholder="Buscar (ex.: Creuza, Embasa, bomba)" aria-label="Buscar despesa">
+    </div>
+    <div class="tablebox">
+      <table id="tbExp"><thead><tr><th>Data</th><th>Descrição</th><th class="r">Valor</th></tr></thead><tbody></tbody><tfoot></tfoot></table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="ico" style="--c:var(--yellow)"><svg><use href="#i-info"/></svg></div><h2>Observações</h2></div>
+  <ul class="clean" id="obs"></ul>
+</section>
+
+<footer>
+  <span>Fontes: extratos da CondoConta (conta corrente e subconta de reserva) de jan a out/2026, demonstrativos mensais, extrato do Banco Inter e carteira de investimentos do Inter em 28/10/2026.</span>
+  <span>Planejamento do orçamento: <a href="https://docs.google.com/spreadsheets/d/1cqzY3qFE5n1-crpETtSZucBK6fVREm9vxV-eq_Uk240/edit?gid=41332585#gid=41332585" target="_blank" rel="noopener">planilha no Google Sheets</a></span>
+</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const D = {"exp":[{"d":"2026-01-29","m":1,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-02-04","m":2,"v":222.95,"c":"Materiais de Manutenção e Conservação","t":"Dalton – material de limpeza (reembolso)"},{"d":"2026-02-05","m":2,"v":15.09,"c":"Materiais de Manutenção e Conservação","t":"Matheus – Baygon (reembolso)"},{"d":"2026-02-05","m":2,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-02-06","m":2,"v":566.24,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-02-12","m":2,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-02-13","m":2,"v":420.0,"c":"Manutenção Preventiva","t":"Hidroserv (Luciano) – controle de pragas / dedetização"},{"d":"2026-02-20","m":2,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-02-20","m":2,"v":45.41,"c":"Materiais de Manutenção e Conservação","t":"Dalton – material de limpeza (reembolso)"},{"d":"2026-02-27","m":2,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-03-03","m":3,"v":132.81,"c":"Consumo (Água + Energia)","t":"Coelba – conta de energia"},{"d":"2026-03-11","m":3,"v":587.79,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-03-12","m":3,"v":400.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza (2 diárias)"},{"d":"2026-03-19","m":3,"v":200.0,"c":"Limpeza e Jardinagem","t":"Aguinaldo – serviço de jardinagem"},{"d":"2026-03-20","m":3,"v":54.8,"c":"Materiais de Manutenção e Conservação","t":"Lâmpada e aromatizador (Vanessa)"},{"d":"2026-03-22","m":3,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-03-26","m":3,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-04-02","m":4,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-04-06","m":4,"v":134.64,"c":"Consumo (Água + Energia)","t":"Coelba – conta de energia"},{"d":"2026-04-07","m":4,"v":39.68,"c":"Materiais de Manutenção e Conservação","t":"Água sanitária e desinfetante"},{"d":"2026-04-07","m":4,"v":566.24,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-04-18","m":4,"v":400.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza (2 diárias)"},{"d":"2026-04-24","m":4,"v":172.75,"c":"Manutenção Corretiva","t":"Manutenção da bomba (R$ 130 serviço + R$ 42,75 material)"},{"d":"2026-04-25","m":4,"v":100.0,"c":"Materiais de Manutenção e Conservação","t":"Aguinaldo – material hidráulico"},{"d":"2026-04-25","m":4,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-04-25","m":4,"v":155.7,"c":"Manutenção Preventiva","t":"Aguinaldo – limpeza da caixa de gordura / fossa"},{"d":"2026-04-29","m":4,"v":720.0,"c":"Manutenção Preventiva","t":"Hidroserv (Luciano) – limpeza da caixa d'água"},{"d":"2026-05-02","m":5,"v":317.91,"c":"Manutenção Corretiva","t":"Manutenção da bomba – materiais e serviço"},{"d":"2026-05-02","m":5,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-05-08","m":5,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-05-12","m":5,"v":609.33,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-05-12","m":5,"v":136.84,"c":"Consumo (Água + Energia)","t":"Coelba – conta de energia"},{"d":"2026-05-15","m":5,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-05-15","m":5,"v":39.71,"c":"Materiais de Manutenção e Conservação","t":"Dalton – material de limpeza (reembolso)"},{"d":"2026-05-21","m":5,"v":53.73,"c":"Melhorias / Investimentos","t":"Kit de display (utensílio)"},{"d":"2026-05-23","m":5,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-05-26","m":5,"v":37.35,"c":"Materiais de Manutenção e Conservação","t":"5 lâmpadas e 1 difusor"},{"d":"2026-05-26","m":5,"v":200.0,"c":"Limpeza e Jardinagem","t":"Aguinaldo – serviço de jardinagem"},{"d":"2026-05-30","m":5,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-06-08","m":6,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-06-08","m":6,"v":609.33,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-06-12","m":6,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-06-22","m":6,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-07-01","m":7,"v":17.0,"c":"Materiais de Manutenção e Conservação","t":"Difusores (aromatizador)"},{"d":"2026-07-02","m":7,"v":400.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza (2 diárias)"},{"d":"2026-07-03","m":7,"v":143.09,"c":"Consumo (Água + Energia)","t":"Coelba – conta de energia"},{"d":"2026-07-08","m":7,"v":609.33,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-07-10","m":7,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-07-14","m":7,"v":49.21,"c":"Materiais de Manutenção e Conservação","t":"Dalton – material de limpeza (reembolso)"},{"d":"2026-07-16","m":7,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-07-23","m":7,"v":200.0,"c":"Limpeza e Jardinagem","t":"Aguinaldo – serviço de jardinagem"},{"d":"2026-07-25","m":7,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-08-01","m":8,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-08-03","m":8,"v":145.09,"c":"Consumo (Água + Energia)","t":"Coelba – conta de energia"},{"d":"2026-08-04","m":8,"v":120.0,"c":"Manutenção Corretiva","t":"Fábio – visita técnica (portas/portão)"},{"d":"2026-08-08","m":8,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-08-08","m":8,"v":653.31,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-08-14","m":8,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-08-20","m":8,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-08-22","m":8,"v":232.67,"c":"Materiais de Manutenção e Conservação","t":"Dalton – material de limpeza (reembolso)"},{"d":"2026-08-25","m":8,"v":146.58,"c":"Consumo (Água + Energia)","t":"Coelba – conta de energia"},{"d":"2026-08-26","m":8,"v":143.71,"c":"Consumo (Água + Energia)","t":"Coelba – conta de energia"},{"d":"2026-08-26","m":8,"v":720.0,"c":"Melhorias / Investimentos","t":"Edilson – sistema de prevenção contra incêndio"},{"d":"2026-08-28","m":8,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-09-04","m":9,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-09-08","m":9,"v":631.0,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-09-18","m":9,"v":400.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza (2 diárias)"},{"d":"2026-09-21","m":9,"v":193.28,"c":"Administrativo (Seguro)","t":"Tokio Marine – parcela do seguro do condomínio"},{"d":"2026-09-24","m":9,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-09-26","m":9,"v":350.0,"c":"Limpeza e Jardinagem","t":"Aguinaldo – serviço de jardinagem"},{"d":"2026-10-02","m":10,"v":32.0,"c":"Materiais de Manutenção e Conservação","t":"Vanessa – material de limpeza (reembolso)"},{"d":"2026-10-03","m":10,"v":60.0,"c":"Materiais de Manutenção e Conservação","t":"Vanessa – material de jardinagem (reembolso)"},{"d":"2026-10-06","m":10,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"},{"d":"2026-10-06","m":10,"v":153.93,"c":"Consumo (Água + Energia)","t":"Coelba – conta de energia"},{"d":"2026-10-06","m":10,"v":631.0,"c":"Consumo (Água + Energia)","t":"Embasa – conta de água/esgoto"},{"d":"2026-10-16","m":10,"v":400.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza (2 diárias)"},{"d":"2026-10-19","m":10,"v":193.28,"c":"Administrativo (Seguro)","t":"Tokio Marine – parcela do seguro do condomínio"},{"d":"2026-10-23","m":10,"v":200.0,"c":"Limpeza e Jardinagem","t":"Creuza – diária de limpeza"}],"rec":[{"m":1,"k":"cond","v":465.0,"j":0,"q3":true},{"m":1,"k":"cond","v":370.0,"j":0,"q3":false},{"m":1,"k":"cond","v":465.0,"j":0,"q3":true},{"m":1,"k":"cond","v":465.0,"j":0,"q3":true},{"m":1,"k":"cond","v":370.0,"j":0,"q3":false},{"m":1,"k":"res","v":1000.0,"j":0,"q3":true},{"m":1,"k":"res","v":800.0,"j":0,"q3":false},{"m":1,"k":"res","v":800.0,"j":0,"q3":false},{"m":1,"k":"res","v":1000.0,"j":0,"q3":true},{"m":1,"k":"res","v":800.0,"j":0,"q3":false},{"m":1,"k":"res","v":1000.0,"j":0,"q3":true},{"m":2,"k":"cond","v":370.0,"j":0,"q3":false},{"m":2,"k":"cond","v":465.0,"j":0,"q3":true},{"m":2,"k":"res","v":500.0,"j":0,"q3":true},{"m":2,"k":"cond","v":465.0,"j":0,"q3":true},{"m":2,"k":"res","v":500.0,"j":0,"q3":true},{"m":2,"k":"cond","v":465.0,"j":0,"q3":true},{"m":2,"k":"cond","v":370.0,"j":0,"q3":false},{"m":2,"k":"cond","v":370.0,"j":0,"q3":false},{"m":2,"k":"res","v":500.0,"j":0,"q3":true},{"m":2,"k":"res","v":400.0,"j":0,"q3":false},{"m":2,"k":"res","v":400.0,"j":0,"q3":false},{"m":2,"k":"res","v":400.0,"j":0,"q3":false},{"m":3,"k":"cond","v":370.0,"j":0,"q3":false},{"m":3,"k":"cond","v":465.0,"j":0,"q3":true},{"m":3,"k":"res","v":500.0,"j":0,"q3":true},{"m":3,"k":"cond","v":465.0,"j":0,"q3":true},{"m":3,"k":"cond","v":465.0,"j":0,"q3":true},{"m":3,"k":"res","v":500.0,"j":0,"q3":true},{"m":3,"k":"cond","v":370.0,"j":0,"q3":false},{"m":3,"k":"cond","v":370.0,"j":0,"q3":false},{"m":3,"k":"res","v":400.0,"j":0,"q3":false},{"m":3,"k":"res","v":400.0,"j":0,"q3":false},{"m":3,"k":"res","v":500.0,"j":0,"q3":true},{"m":3,"k":"res","v":400.0,"j":0,"q3":false},{"m":4,"k":"cond","v":370.0,"j":0,"q3":false},{"m":4,"k":"cond","v":465.0,"j":0,"q3":true},{"m":4,"k":"cond","v":465.0,"j":0,"q3":true},{"m":4,"k":"cond","v":465.0,"j":0,"q3":true},{"m":4,"k":"cond","v":370.0,"j":0,"q3":false},{"m":4,"k":"cond","v":370.0,"j":0,"q3":false},{"m":4,"k":"res","v":500.0,"j":0,"q3":true},{"m":4,"k":"res","v":500.0,"j":0,"q3":true},{"m":4,"k":"res","v":400.0,"j":0,"q3":false},{"m":4,"k":"res","v":500.0,"j":0,"q3":true},{"m":4,"k":"res","v":400.0,"j":0,"q3":false},{"m":4,"k":"res","v":400.0,"j":0,"q3":false},{"m":5,"k":"cond","v":465.0,"j":0,"q3":true},{"m":5,"k":"cond","v":465.0,"j":0,"q3":true},{"m":5,"k":"cond","v":370.0,"j":0,"q3":false},{"m":5,"k":"cond","v":465.0,"j":0,"q3":true},{"m":5,"k":"cond","v":370.0,"j":0,"q3":false},{"m":5,"k":"cond","v":370.0,"j":0,"q3":false},{"m":5,"k":"res","v":500.0,"j":0,"q3":true},{"m":5,"k":"res","v":500.0,"j":0,"q3":true},{"m":5,"k":"res","v":500.0,"j":0,"q3":true},{"m":5,"k":"res","v":400.0,"j":0,"q3":false},{"m":5,"k":"res","v":400.0,"j":0,"q3":false},{"m":5,"k":"res","v":400.0,"j":0,"q3":false},{"m":6,"k":"cond","v":370.0,"j":0,"q3":false},{"m":6,"k":"cond","v":465.0,"j":0,"q3":true},{"m":6,"k":"cond","v":465.0,"j":0,"q3":true},{"m":6,"k":"cond","v":465.0,"j":0,"q3":true},{"m":6,"k":"cond","v":370.0,"j":0,"q3":false},{"m":6,"k":"cond","v":370.0,"j":0,"q3":false},{"m":6,"k":"res","v":500.0,"j":0,"q3":true},{"m":6,"k":"res","v":400.0,"j":0,"q3":false},{"m":6,"k":"res","v":500.0,"j":0,"q3":true},{"m":6,"k":"res","v":500.0,"j":0,"q3":true},{"m":6,"k":"res","v":400.0,"j":0,"q3":false},{"m":6,"k":"res","v":400.0,"j":0,"q3":false},{"m":7,"k":"cond","v":465.0,"j":0,"q3":true},{"m":7,"k":"cond","v":465.0,"j":0,"q3":true},{"m":7,"k":"cond","v":370.0,"j":0,"q3":false},{"m":7,"k":"cond","v":465.0,"j":0,"q3":true},{"m":7,"k":"cond","v":370.0,"j":0,"q3":false},{"m":7,"k":"cond","v":370.0,"j":0,"q3":false},{"m":7,"k":"res","v":500.0,"j":0,"q3":true},{"m":7,"k":"res","v":500.0,"j":0,"q3":true},{"m":7,"k":"res","v":400.0,"j":0,"q3":false},{"m":7,"k":"res","v":400.0,"j":0,"q3":false},{"m":7,"k":"res","v":400.0,"j":0,"q3":false},{"m":7,"k":"res","v":500.0,"j":0,"q3":true},{"m":8,"k":"cond","v":465.0,"j":0,"q3":true},{"m":8,"k":"cond","v":370.0,"j":0,"q3":false},{"m":8,"k":"cond","v":465.0,"j":0,"q3":true},{"m":8,"k":"cond","v":370.0,"j":0,"q3":false},{"m":8,"k":"cond","v":370,"j":7.51,"q3":false},{"m":8,"k":"res","v":500.0,"j":0,"q3":true},{"m":8,"k":"res","v":500.0,"j":0,"q3":true},{"m":8,"k":"cond","v":465.0,"j":0,"q3":true},{"m":8,"k":"res","v":400.0,"j":0,"q3":false},{"m":8,"k":"res","v":500.0,"j":0,"q3":true},{"m":8,"k":"res","v":400.0,"j":0,"q3":false},{"m":8,"k":"res","v":400.0,"j":0,"q3":false},{"m":9,"k":"cond","v":465.0,"j":0,"q3":true},{"m":9,"k":"cond","v":370.0,"j":0,"q3":false},{"m":9,"k":"cond","v":465.0,"j":0,"q3":true},{"m":9,"k":"cond","v":370.0,"j":0,"q3":false},{"m":9,"k":"cond","v":370.0,"j":0,"q3":false},{"m":9,"k":"cond","v":465.0,"j":0,"q3":true},{"m":9,"k":"res","v":500.0,"j":0,"q3":true},{"m":9,"k":"res","v":500.0,"j":0,"q3":true},{"m":9,"k":"res","v":500.0,"j":0,"q3":true},{"m":9,"k":"res","v":400.0,"j":0,"q3":false},{"m":9,"k":"res","v":400.0,"j":0,"q3":false},{"m":9,"k":"res","v":400,"j":8.12,"q3":false},{"m":10,"k":"cond","v":370.0,"j":0,"q3":false},{"m":10,"k":"cond","v":370.0,"j":0,"q3":false},{"m":10,"k":"cond","v":465.0,"j":0,"q3":true},{"m":10,"k":"cond","v":465.0,"j":0,"q3":true},{"m":10,"k":"cond","v":465.0,"j":0,"q3":true},{"m":10,"k":"res","v":500.0,"j":0,"q3":true},{"m":10,"k":"res","v":500.0,"j":0,"q3":true}],"inter":[{"dt":"2026-05-04","m":5,"v":10944.16},{"dt":"2026-06-08","m":6,"v":2700.0},{"dt":"2026-07-08","m":7,"v":2700.0},{"dt":"2026-09-09","m":9,"v":5400.0},{"dt":"2026-09-09","m":9,"v":2700.0},{"dt":"2026-10-28","m":10,"v":3700.0}],"fundoCC":[{"dt":"2026-01-26","m":1,"v":5400.0},{"dt":"2026-02-04","m":2,"v":1000.0},{"dt":"2026-03-12","m":3,"v":2700.0},{"dt":"2026-03-31","m":3,"v":1700.0}]};
+const SALDO_ANTERIOR = 1261.19, BONIF_CC = 144.16, SALDO_CC = 6224.04;
+const INTER_SALDO = 29254.92, INTER_LIQ = 29005.04;
+const INTER_APP = [null,null,null,null,11100,13900,16800,17000,25300,INTER_SALDO];
+const PREV_COND = 2505, PREV_RES = 2700;
+const MESES = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out'];
+const MESES_L = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro'];
+const CATS = [
+  ['Consumo (Água + Energia)','--blue'],
+  ['Limpeza e Jardinagem','--yellow'],
+  ['Manutenção Preventiva','--purple'],
+  ['Manutenção Corretiva','--coral'],
+  ['Materiais de Manutenção e Conservação','--orange'],
+  ['Melhorias / Investimentos','--pink'],
+  ['Administrativo (Seguro)','--cyan'],
+];
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const brl = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const sum = a => a.reduce((s,x)=>s+x,0);
+const r2 = v => Math.round(v*100)/100;
+const $ = id => document.getElementById(id);
+
+const cond = MESES.map((_,i)=>sum(D.rec.filter(x=>x.k==='cond'&&x.m===i+1).map(x=>x.v)));
+const res  = MESES.map((_,i)=>sum(D.rec.filter(x=>x.k==='res'&&x.m===i+1).map(x=>x.v)));
+const juros = sum(D.rec.map(x=>x.j));
+const despMes = MESES.map((_,i)=>sum(D.exp.filter(x=>x.m===i+1).map(x=>x.v)));
+const totCond = sum(cond), totRes = sum(res), totDesp = sum(D.exp.map(x=>x.v));
+const totInter = sum(D.inter.map(x=>x.v));
+const rendCDB = r2(INTER_SALDO - totInter);
+const catTot = CATS.map(([c])=>sum(D.exp.filter(x=>x.c===c).map(x=>x.v)));
+const resCompletos = totRes - res[9];   // dez/25 a set/26
+const nMeses = resCompletos / PREV_RES; // 10
+
+$('k1').textContent = brl(SALDO_CC);
+$('k2').textContent = brl(INTER_SALDO);
+$('k3').textContent = brl(totCond);
+$('k3s').textContent = `de ${brl(PREV_COND*10)} previstos (jan–out). Janeiro a setembro estão todas pagas; só falta uma de outubro (R$ 370).`;
+$('k4').textContent = brl(totDesp);
+$('k4s').textContent = `média de ${brl(totDesp/10)} por mês`;
+
+// composição fundo de reserva
+const COMPO = [
+  [`${nMeses} meses completos de contribuição`,`dezembro/2025 a setembro/2026 · ${nMeses} × R$ 2.700`,resCompletos,'--purple'],
+  ['Outubro (incompleto)',`2 de 6 apartamentos pagaram · faltam ${brl(PREV_RES-res[9])}`,res[9],'--pink'],
+  ['Rendimento na CondoConta','subconta de reserva, janeiro a abril',BONIF_CC,'--cyan'],
+  ['Rendimento do CDB no Inter','maio a outubro',rendCDB,'--mint'],
+];
+$('frTot').textContent = brl(INTER_SALDO);
+$('compo').innerHTML = COMPO.map(([,,v,c])=>`<i style="flex:${v};background:var(${c})"></i>`).join('');
+$('frLegend').innerHTML = COMPO.map(([a,s,v,c])=>`<div class="row"><span class="l"><span class="dot" style="background:var(${c})"></span><span>${a}<small>${s}</small></span></span><span>${brl(v)}</span></div>`).join('')
+ + `<div class="row tot"><span>Saldo no Inter em 28/10</span><span>${brl(INTER_SALDO)}</span></div>`
+ + `<div class="row"><span class="l"><span class="dot" style="background:var(--line)"></span><span>Imposto de Renda, se resgatar hoje<small>22,5% sobre o rendimento do CDB</small></span></span><span class="neg">${brl(INTER_LIQ-INTER_SALDO)}</span></div>`
+ + `<div class="row"><span class="l"><span class="dot" style="background:var(--line)"></span><span>Disponível para resgate</span></span><span>${brl(INTER_LIQ)}</span></div>`
+ + `<div class="row"><span class="l"><span class="dot" style="background:transparent"></span><span class="small">Tudo o que foi arrecadado (${brl(totRes)}) mais o rendimento da CondoConta (${brl(BONIF_CC)}) foi transferido ao Inter: ${brl(totInter)}.</span></span><span class="tag ok"><svg width="14" height="14"><use href="#i-check"/></svg>Confere</span></div>`;
+
+// ledger CondoConta
+const opCheck = r2(SALDO_ANTERIOR+totCond+juros-totDesp);
+$('ledgerCC').innerHTML = [
+  ['Saldo recebido da gestão anterior','janeiro',SALDO_ANTERIOR,'--blue'],
+  ['Taxas condominiais recebidas','janeiro a outubro',totCond,'--mint'],
+  ['Juros e multa por atraso','',r2(juros),'--cyan'],
+  ['Despesas pagas','janeiro a outubro',-totDesp,'--coral'],
+].map(([a,s,v,c])=>`<div class="row"><span class="l"><span class="dot" style="background:var(${c})"></span><span>${a}${s?`<small>${s}</small>`:''}</span></span><span class="${v<0?'neg':''}">${brl(v)}</span></div>`).join('')
+ + `<div class="row tot"><span>Saldo hoje (28/10)</span><span>${brl(opCheck)}</span></div>`;
+
+// tabela fundo
+const interMes = MESES.map((_,i)=>sum(D.inter.filter(x=>x.m===i+1).map(x=>x.v)));
+const tb = document.querySelector('#tbFR tbody');
+MESES.forEach((m,i)=>{
+  let sit;
+  if(i===9) sit = `<span class="tag wait">Incompleto · faltam ${brl(PREV_RES-res[i])}</span>`;
+  else if(i<4) sit = '<span class="tag ok">Completo</span> <span class="small">ficou na CondoConta até maio</span>';
+  else sit = '<span class="tag ok">Completo</span>';
+  const lab = i===0? 'Dezembro + Janeiro': MESES_L[i];
+  tb.insertAdjacentHTML('beforeend',`<tr><td>${lab}</td><td class="r">${brl(res[i])}</td><td class="r">${interMes[i]?brl(interMes[i]):'–'}</td><td>${sit}</td></tr>`);
+});
+document.querySelector('#tbFR tfoot').innerHTML = `<tr><td>Total</td><td class="r">${brl(totRes)}</td><td class="r">${brl(totInter)}</td><td class="small" style="font-weight:600">Enviado inclui ${brl(BONIF_CC)} de rendimento da CondoConta</td></tr>`;
+
+// charts
+Chart.defaults.font.family = css('--f') || 'sans-serif';
+Chart.defaults.font.size = 14;
+function themeChart(){ Chart.defaults.color = css('--muted'); Chart.defaults.borderColor = css('--line'); }
+themeChart();
+const money = {callback:v=>'R$ '+Number(v).toLocaleString('pt-BR')};
+const tip = {callbacks:{label:c=>`${c.dataset.label}: ${brl(Math.abs(c.parsed.y ?? c.parsed))}`}};
+
+const fmtK = v => { const a=Math.abs(v); return a>=1000 ? 'R$ '+(a/1000).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mil' : 'R$ '+Math.round(a).toLocaleString('pt-BR'); };
+Chart.register({id:'vlabels',afterDatasetsDraw(chart,args,o){
+  if(!o||!o.mode) return; const {ctx}=chart; ctx.save();
+  ctx.font='600 12px '+(css('--f')||'sans-serif'); ctx.fillStyle=css('--muted'); ctx.textAlign='center';
+  const vis=i=>chart.isDatasetVisible(i);
+  if(o.mode==='bars'){ (o.ds||[0]).forEach(d=>{ if(!vis(d)) return; chart.getDatasetMeta(d).data.forEach((el,i)=>{const v=chart.data.datasets[d].data[i]; if(!v) return; ctx.textBaseline='bottom'; ctx.fillText(fmtK(v),el.x,el.y-4);});}); }
+  if(o.mode==='hbars'){ chart.getDatasetMeta(0).data.forEach((el,i)=>{const v=chart.data.datasets[0].data[i]; ctx.textAlign='left'; ctx.textBaseline='middle'; ctx.fillText(fmtK(v),el.x+6,el.y);}); }
+  if(o.mode==='stack'){
+    const y=chart.scales.y;
+    if(vis(0)) chart.getDatasetMeta(0).data.forEach((el,i)=>{const v=chart.data.datasets[0].data[i]; if(!v) return; ctx.textBaseline='bottom'; ctx.fillText(fmtK(v),el.x,el.y-4);});
+    chart.data.labels.forEach((_,i)=>{ let t=0; chart.data.datasets.forEach((ds,d)=>{ if(d>0&&ds.type==='bar'&&vis(d)) t+=ds.data[i]||0; }); if(!t) return; const x=chart.getDatasetMeta(0).data[i].x; ctx.textBaseline='top'; ctx.fillText(fmtK(t),x,y.getPixelForValue(t)+4); });
+  }
+  if(o.lines){ ctx.textAlign='center'; ctx.fillStyle=css('--fg');
+    chart.data.labels.forEach((_,i)=>{
+      const vals=o.lines.filter(vis).map(d=>chart.data.datasets[d].data[i]).filter(v=>v!=null);
+      const mx=Math.max(...vals);
+      o.lines.forEach(d=>{ if(!vis(d)) return; const v=chart.data.datasets[d].data[i]; if(v==null || (o.skip||[]).includes(d+':'+i)) return; const el=chart.getDatasetMeta(d).data[i];
+        const up = v===mx; ctx.textBaseline=up?'bottom':'top'; ctx.fillText(fmtK(v),el.x,up?el.y-8:el.y+8); });
+    });
+  }
+  ctx.restore();
+}});
+let acc=0; const accArr = res.map(v=>r2(acc+=v));
+const chFR = new Chart($('chFR'),{
+  data:{labels:MESES.map((m,i)=>i===0?'Dez+Jan':m),datasets:[
+    {type:'bar',label:'Arrecadado no mês',data:res,backgroundColor:res.map((_,i)=>i===9?css('--pink'):css('--purple')),borderRadius:6,order:3},
+    {type:'line',label:'Total arrecadado',data:accArr,borderColor:css('--cyan'),backgroundColor:css('--cyan'),tension:.25,pointRadius:4,order:2},
+    {type:'line',label:'Saldo no Inter (com rendimento)',data:INTER_APP,borderColor:css('--mint'),backgroundColor:css('--mint'),borderWidth:3,pointRadius:5,tension:.25,spanGaps:false,order:1},
+  ]},
+  options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},layout:{padding:{top:24}},plugins:{vlabels:{mode:'bars',ds:[0],lines:[1,2],skip:['1:0']},tooltip:tip,legend:{position:'bottom',labels:{usePointStyle:true}}},scales:{y:{ticks:money,beginAtZero:true},x:{grid:{display:false}}}}
+});
+
+let op = SALDO_ANTERIOR; const opArr = MESES.map((_,i)=>{ op += cond[i] + sum(D.rec.filter(x=>x.m===i+1).map(x=>x.j)) - despMes[i]; return r2(op); });
+const chMes = new Chart($('chMes'),{
+  data:{labels:MESES,datasets:[
+    {type:'bar',label:'Taxa condominial recebida',data:cond,backgroundColor:css('--mint'),borderRadius:6,stack:'s',order:3},
+    ...CATS.map(([c,v])=>({type:'bar',label:c,stack:'s',data:MESES.map((_,i)=>-r2(sum(D.exp.filter(x=>x.m===i+1&&x.c===c).map(x=>x.v)))),backgroundColor:css(v),order:3})),
+    {type:'line',label:'Saldo do condomínio',data:opArr,borderColor:css('--fg'),backgroundColor:css('--fg'),borderWidth:2.5,pointRadius:4,tension:.25,order:1},
+  ]},
+  options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+    layout:{padding:{top:24,bottom:4}},
+    plugins:{vlabels:{mode:'stack',lines:[8]},tooltip:{...tip,filter:c=>c.parsed.y!==0},legend:{position:'bottom',labels:{boxWidth:12,usePointStyle:true}}},
+    scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:money,grid:{color:c=>c.tick.value===0?css('--fg'):css('--line'),lineWidth:c=>c.tick.value===0?2:1}}}}
+});
+
+const ord = CATS.map((c,i)=>[c,catTot[i]]).sort((a,b)=>b[1]-a[1]);
+const chCat = new Chart($('chCat'),{
+  type:'bar',
+  data:{labels:ord.map(x=>x[0][0]),datasets:[{label:'Gasto',data:ord.map(x=>r2(x[1])),backgroundColor:ord.map(x=>css(x[0][1])),borderRadius:6}]},
+  options:{indexAxis:'y',maintainAspectRatio:false,layout:{padding:{right:80}},plugins:{vlabels:{mode:'hbars'},legend:{display:false},tooltip:{callbacks:{label:c=>`${brl(c.parsed.x)} (${(c.parsed.x/totDesp*100).toFixed(1).replace('.',',')}%)`}}},scales:{x:{ticks:money},y:{display:false}}}
+});
+$('catLegend').innerHTML = ord.map(([[c,v],t])=>`<div class="row"><span class="l"><span class="dot" style="background:var(${v})"></span><span>${c}</span></span><span>${brl(t)} <span class="small">· ${(t/totDesp*100).toFixed(0)}%</span></span></div>`).join('')
+ + `<div class="row tot"><span>Total</span><span>${brl(totDesp)}</span></div>`;
+
+const k = 10/12;
+const ORC = [
+  ['Limpeza (Creuza)',10600, sum(D.exp.filter(x=>/Creuza/.test(x.t)).map(x=>x.v))],
+  ['Jardinagem (Aguinaldo)',1188, sum(D.exp.filter(x=>/jardinagem/.test(x.t)&&/Aguinaldo/.test(x.t)).map(x=>x.v))],
+  ['Água (Embasa)',8257.60, sum(D.exp.filter(x=>/Embasa/.test(x.t)).map(x=>x.v))],
+  ['Energia (Coelba)',1991.69, sum(D.exp.filter(x=>/Coelba/.test(x.t)).map(x=>x.v))],
+  ['Manutenções (preventiva + corretiva)',5400, catTot[2]+catTot[3]],
+  ['Materiais de manutenção e conservação',2432.62, catTot[4]],
+  ['Administrativo (seguro e outros)',1070, catTot[6]],
+  ['Melhorias / investimentos',0, catTot[5]],
+];
+let tp=0,tr=0;
+document.querySelector('#tbOrc tbody').innerHTML = ORC.map(([g,a,real])=>{
+  const p = a*k; tp+=p; tr+=real; const pct = p? real/p : null;
+  const bar = pct===null? '<span class="small">não previsto</span>' : `<div style="display:flex;align-items:center;gap:8px"><div class="bar"><i class="${pct>1?'over':''}" style="width:${Math.min(100,pct*100)}%"></i></div><span class="num small">${Math.round(pct*100)}%</span></div>`;
+  return `<tr><td>${g}</td><td class="r">${p?brl(p):'–'}</td><td class="r">${brl(real)}</td><td style="min-width:140px">${bar}</td></tr>`;
+}).join('');
+document.querySelector('#tbOrc tfoot').innerHTML = `<tr><td>Total</td><td class="r">${brl(tp)}</td><td class="r">${brl(tr)}</td><td><span class="num small">${Math.round(tr/tp*100)}% do previsto</span></td></tr>`;
+
+let catSel = null;
+const chips = $('chips');
+chips.innerHTML = `<button class="chip" aria-pressed="true" data-c="">Todas</button>` + CATS.map(([c,v])=>`<button class="chip" aria-pressed="false" data-c="${c}"><span class="sw" style="background:var(${v})"></span>${c}</button>`).join('');
+chips.addEventListener('click',e=>{const b=e.target.closest('.chip'); if(!b) return; catSel=b.dataset.c||null; chips.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); renderExp();});
+const fMes = $('fMes');
+fMes.innerHTML = '<option value="">Todos</option>' + MESES_L.map((m,i)=>`<option value="${i+1}">${m}</option>`).join('');
+const fBusca = $('fBusca');
+fMes.addEventListener('change',renderExp); fBusca.addEventListener('input',renderExp);
+const norm = s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+function renderExp(){
+  const m = +fMes.value||0, q = norm(fBusca.value.trim());
+  const rows = D.exp.filter(x=>(!catSel||x.c===catSel)&&(!m||x.m===m)&&(!q||norm(x.t+' '+x.c).includes(q))).sort((a,b)=>a.d<b.d?-1:1);
+  const color = Object.fromEntries(CATS);
+  document.querySelector('#tbExp tbody').innerHTML = rows.length? rows.map(x=>`<tr><td class="num" style="white-space:nowrap">${x.d.slice(8,10)}/${x.d.slice(5,7)}</td><td>${x.t}<div class="small"><span class="sw" style="background:var(${color[x.c]})"></span>${x.c}</div></td><td class="r">${brl(x.v)}</td></tr>`).join('') : `<tr><td colspan="3" class="small">Nenhuma despesa com esses filtros.</td></tr>`;
+  document.querySelector('#tbExp tfoot').innerHTML = `<tr><td colspan="2">${rows.length} lançamento${rows.length===1?'':'s'}</td><td class="r">${brl(sum(rows.map(x=>x.v)))}</td></tr>`;
+}
+renderExp();
+
+const creuzaN = sum(D.exp.filter(x=>/Creuza/.test(x.t)).map(x=>x.v))/200;
+const OBS = [
+  ['--orange','i-clock',`<b>Outubro está em aberto.</b> Até 28/10 entraram 5 de 6 taxas condominiais (falta uma de 2 quartos, R$ 370) e 2 de 6 taxas de reserva (faltam ${brl(PREV_RES-res[9])}).`],
+  ['--coral','i-info',`<b>Taxas condominiais em falta:</b> no ano entraram ${brl(totCond)} de ${brl(PREV_COND*10)} previstos. A diferença de ${brl(PREV_COND*10-totCond)} são duas taxas de 2 quartos (R$ 370 cada). A de janeiro foi paga adiantada em dezembro, antes da conta na CondoConta, então está quitada. A de outubro ainda vai ser paga.`],
+  ['--purple','i-safe',`<b>Janeiro:</b> foram cobradas juntas as taxas de reserva de dezembro e janeiro (R$ 1.000 e R$ 800 por apartamento, total R$ 5.400). Entraram 5 taxas condominiais na CondoConta (R$ 2.135); a sexta já tinha sido paga em dezembro e ${brl(SALDO_ANTERIOR)} de saldo da gestão anterior.`],
+  ['--yellow','i-chart',`<b>Limpeza:</b> foram ${creuzaN} diárias da Creuza no ano (R$ 200 cada), a maior despesa do condomínio.`],
+  ['--cyan','i-check',`<b>Seguro:</b> o seguro do condomínio (Tokio Marine) começou em setembro, em parcelas de R$ 193,28.`],
+  ['--mint','i-in',`<b>Juros por atraso:</b> ${brl(juros)} de juros e multa ficaram na conta do condomínio.`],
+];
+$('obs').innerHTML = OBS.map(([c,i,s])=>`<li><span class="ico" style="--c:var(${c})"><svg><use href="#${i}"/></svg></span><span>${s}</span></li>`).join('');
+
+function retheme(){ themeChart();
+  chFR.data.datasets[0].backgroundColor=res.map((_,i)=>i===9?css('--pink'):css('--purple'));
+  chFR.data.datasets[1].borderColor=chFR.data.datasets[1].backgroundColor=css('--cyan');
+  chFR.data.datasets[2].borderColor=chFR.data.datasets[2].backgroundColor=css('--mint');
+  chMes.data.datasets[0].backgroundColor=css('--mint');
+  CATS.forEach(([c,v],i)=>chMes.data.datasets[i+1].backgroundColor=css(v));
+  chMes.data.datasets[8].borderColor=chMes.data.datasets[8].backgroundColor=css('--fg');
+  chCat.data.datasets[0].backgroundColor=ord.map(x=>css(x[0][1]));
+  [chFR,chMes,chCat].forEach(c=>c.update('none'));
+}
+matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change',retheme);
+new MutationObserver(retheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+</script>
